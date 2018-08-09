@@ -1,0 +1,14 @@
+# defaults file for roles/apache
+
+apache_packages:
+  - "httpd24u"
+
+apache_group: "apache"
+
+web_root: "web"
+document_root: "/var/www/html/site1"
+
+index_file: index.html
+
+html_deploy: true
+html_heading: "Success !!!"

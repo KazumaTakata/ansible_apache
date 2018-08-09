@@ -1,0 +1,13 @@
+# defaults file for roles/common
+
+apache_packages:
+  - "ntp"
+  - "ntpdate"
+  - "vim-enhanced"
+  - "git"
+  - "unzip"
+  - "policycoreutils-python"
+  - "epel-release"
+  - "https://centos7.iuscommunity.org/ius-release.rpm"
+  - "openssl"
+  - "openssl-libs"

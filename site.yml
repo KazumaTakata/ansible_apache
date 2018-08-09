@@ -1,0 +1,8 @@
+- hosts: boxes
+  gather_facts: true
+  become: yes
+  become_method: sudo
+
+  roles:
+    - roles/common
+    - roles/apache

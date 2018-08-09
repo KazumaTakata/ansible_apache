@@ -1,0 +1,24 @@
+# tasks file for roles/apache
+
+- name: install the apache packages
+  yum:
+    name: "{{ item }}"
+    state: "installed"
+  with_items: "{{ apache_packages }}"
+
+- name: set the selinux allowing httpd_t to be permissive
+  selinux:
+    policy: targeted
+    state: permissive
+
+- name: copy the vhost.conf to /etc/httpd/conf.d/
+  template:
+    src: "vhost.conf.j2"
+    dest: "/etc/httpd/conf.d/vhost.conf"
+  notify: "restart httpd"
+
+- name: copy the test HTML page to the document root
+  template:
+    src: "index.html.j2"
+    dest: "{{ document_root }}/index.html"
+    mode: "0644"
